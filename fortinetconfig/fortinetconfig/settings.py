@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'abf7iq#s+9#&$4=6p3#2zwpa!r4%$=r==pkghd%77l=y%d88en'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.global_config',
+    'apps.snmp_config',
+    'apps.templates',
     'rest_framework',
     'django_filters',
+    'django_tables2',
 ]
 
 MIDDLEWARE = [

@@ -5,10 +5,10 @@ from .views import *
 
 router = DefaultRouter()
 
-router.register('global', GlobalConfigModelViewSet)
+router.register('api', GlobalConfigModelViewSet)
 
 urlpatterns = [
-    path('list', GlobalConfigModelListView.as_view(), name='global-list'),
+    path('', GlobalConfigModelListView.as_view(), name='global-list'),
     path('create/', GlobalConfigModelCreateView.as_view(), name='global-create'),
     path('<int:pk>/', GlobalConfigModelDetailView.as_view(), name='global-detail'),
     path('<int:pk>/basic', GlobalConfigModelBasicView.as_view(), name='global-basic'),

@@ -1,0 +1,7 @@
+{% if snmp_system_config %}config system snmp sysinfo
+set contact {{ snmp_system_config.contact }}
+set description {{ snmp_system_config.description }}
+set location {{ snmp_system_config.location }}
+set status {% if snmp_system_config.status %}enable{% else %}disable{% endif %}
+end
+{% else %}{% endif %}

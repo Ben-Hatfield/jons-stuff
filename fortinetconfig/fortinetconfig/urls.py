@@ -22,11 +22,13 @@ class HomeView(RedirectView):
     is_permanent = True
 
     def get_redirect_url(*args, **kwargs):
-        return reverse_lazy('global-list')
+        return reverse_lazy('config-list')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('configurations/', include('apps.global_config.urls')),
+    path('templates/', include('apps.templates.urls')),
+    path('templates/global/', include('apps.global_config.urls')),
+    path('templates/snmp/', include('apps.snmp_config.urls')),
     path('', HomeView.as_view(), name='home')
 ]

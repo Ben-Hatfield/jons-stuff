@@ -1,3 +1,4 @@
+import django_tables2 as tables
 from django.urls import reverse_lazy
 from django.views import generic
 from rest_framework import viewsets
@@ -5,6 +6,7 @@ from rest_framework import viewsets
 from .forms import GlobalConfigForm
 from .models import GlobalConfigModel
 from .serializers import GlobalConfigModelSerializer
+from .tables import GlobalConfigModelTable
 
 
 # Create your views here.
@@ -14,9 +16,10 @@ class GlobalConfigModelViewSet(viewsets.ModelViewSet):
     filterset_fields = GlobalConfigModelSerializer.Meta.fields
 
 
-class GlobalConfigModelListView(generic.ListView):
-    queryset = GlobalConfigModel.objects.all()
-    template_name = 'global_config/list_view.html'
+class GlobalConfigModelListView(tables.SingleTableView):
+    model = GlobalConfigModel
+    table_class = GlobalConfigModelTable
+    template_name = 'generic/list_view.html'
 
 
 class GlobalConfigModelCreateView(generic.CreateView):
@@ -47,4 +50,3 @@ class GlobalConfigModelBasicView(generic.DetailView):
     def render_to_response(self, context, **response_kwargs):
         ret = super().render_to_response(context, content_type='text/text', **response_kwargs)
         return ret
-

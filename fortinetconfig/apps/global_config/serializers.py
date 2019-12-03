@@ -14,4 +14,5 @@ class GlobalConfigModelSerializer(serializers.ModelSerializer):
                   'gui_display_hostname',
                   'hostname',
                   'timezone',
+                  'config',
                   ]

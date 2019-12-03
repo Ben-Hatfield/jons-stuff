@@ -1,9 +1,10 @@
-!!! Set the global parameters
+{% if global_config %}!!! Set the global parameters
 config system global
-set admin-sport {{ object.admin_sport }}
-set admin-ssh-port {{ object.admin_ssh_port }}
-set admintimeout {{ object.admintimeout }}
-set gui-certificates {% if object.gui_certificates %}enable{% else %}disable{% endif %}
-set gui-display-hostname {% if object.gui_display_hostname %}enable{% else %}disable{% endif %}
-set hostname {{ object.hostname }}
-set timezone {{ object.timezone }}
+set admin-sport {{ global_config.admin_sport }}
+set admin-ssh-port {{ global_config.admin_ssh_port }}
+set admintimeout {{ global_config.admintimeout }}
+set gui-certificates {% if global_config.gui_certificates %}enable{% else %}disable{% endif %}
+set gui-display-hostname {% if global_config.gui_display_hostname %}enable{% else %}disable{% endif %}
+set hostname {{ global_config.hostname }}
+set timezone {{ global_config.timezone }}
+{% else %}{% endif %}
